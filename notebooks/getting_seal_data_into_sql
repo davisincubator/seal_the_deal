@@ -1,0 +1,30 @@
+Last login: Fri May  5 16:20:20 on ttys000
+campus-046-072:Documents rcphillips$ psql
+psql (9.5.3)
+Type "help" for help.
+
+rcphillips=# CREATE TABLE mismatched_train_images AS
+rcphillips-# 
+rcphillips-# (train_id int)
+rcphillips-# ;
+ERROR:  syntax error at or near "train_id"
+LINE 2: (train_id int)
+         ^
+rcphillips=# CREATE TABLE mismatched_train_images 
+rcphillips-# (train_id int)
+rcphillips-# ;
+CREATE TABLE
+rcphillips=# 
+rcphillips=# COPY mismatched_train_images FROM "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv";
+NOTICE:  identifier "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv" will be truncated to "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTr"
+ERROR:  syntax error at or near ""/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv""
+LINE 1: COPY mismatched_train_images FROM "/Users/rcphillips/Documen...
+                                          ^
+rcphillips=# COPY mismatched_train_images FROM "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv" WITH (FORMAT CSV, HEADER true, NULL 'NULL');
+NOTICE:  identifier "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv" will be truncated to "/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTr"
+ERROR:  syntax error at or near ""/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv""
+LINE 1: COPY mismatched_train_images FROM "/Users/rcphillips/Documen...
+                                          ^
+rcphillips=# COPY mismatched_train_images FROM '/Users/rcphillips/Documents/seal_the_deal/src/data/MismatchedTrainImages.csv' WITH (FORMAT CSV, HEADER true, NULL 'NULL');
+COPY 57
+rcphillips=# 
