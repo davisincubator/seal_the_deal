@@ -122,7 +122,6 @@ for filename in file_names:
         coordinates_df["juveniles"][filename] = juveniles
         coordinates_df["pups"][filename] = pups
 
-% time
 
 x = []
 y = []
@@ -219,7 +218,7 @@ with tf.device('/gpu:0'):
         for key in the_counter:
             test_coordinates_df.set_value(index=filename, col=key, value=the_counter[key])
 
-    % time
+
 
 protect_df = test_coordinates_df
 # print(test_coordinates_df)
