@@ -23,8 +23,7 @@ import datetime
 
 from tqdm import tnrange, tqdm_notebook, tqdm
 
-% matplotlib
-inline
+#%matplotlib inline
 
 class_names = ['adult_females', 'adult_males', 'juveniles', 'pups', 'subadult_males']
 
